@@ -30,10 +30,10 @@ _This application will help a librarian keep track of the books and authors in t
 
 | Behavior | Input | Output |
 | -------- | ----- | ------ |
-| 1. As a librarian, I want to create, read, update, delete, and list books in the catalog, so that we can keep track of our inventory. |  | List of all books |
-| 2. As a librarian, I want to search for a book by author or title, so that I can find a book when there are a lot of books in the library. | Cats Cradle | Cats Cradle by Kurt Vonnegut |
+| 1. This application will let a user log in and log out. Only logged in users will have create edit and delete functionality. All users should have read functionality |  |  |
+| 2. There will be a many-many relationship between Treats and Flavors. |  |  |
 | 3. As a librarian, I want to enter multiple authors for a book, so that I can include accurate information in my catalog. | Issac Asimov  | Cats Cradle by Kurt Vonnegut, Issac Asimov |
-| 4. As a patron, I want to check a book out, so that I can take it home with me.| Cats Cradle | Cats Cradle in Patron details |
+| 4. A user will be able to navigate to a splash page that lists all treats and flavors. Users should be able to click on an individual treat or flavor to see all the treats/flavors that belong to it.|  |  |
 
 
 ## Known Bugs

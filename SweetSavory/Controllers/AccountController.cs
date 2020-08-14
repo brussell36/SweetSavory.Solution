@@ -1,21 +1,24 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Security.Claims;
 using SweetSavory.Models;
-using System.Threading.Tasks;
 using SweetSavory.ViewModels;
+using System.Threading.Tasks;
 
 namespace SweetSavory.Controllers
 {
   public class AccountController : Controller
   {
-    private readonly SweetSavoryContext _db;
     private readonly UserManager<AppUser> _userManager;
     private readonly SignInManager<AppUser> _signInManager;
-    public AccountController(SweetSavoryContext db, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+    private readonly SweetSavoryContext _db;
+    public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, SweetSavoryContext db)
     {
-      _db = db;
       _userManager = userManager;
       _signInManager = signInManager;
+      _db = db;
     }
 
     public ActionResult Index()
@@ -23,7 +26,7 @@ namespace SweetSavory.Controllers
       return View();
     }
 
-    public ActionResult Register()
+    public IActionResult Register()
     {
       return View();
     }

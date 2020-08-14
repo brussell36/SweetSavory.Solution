@@ -11,6 +11,7 @@ using System.Security.Claims;
 
 namespace SweetSavory.Controllers
 {
+  [Authorize]
   public class TreatsController : Controller
   {
     private readonly SweetSavoryContext _db;
@@ -36,11 +37,8 @@ namespace SweetSavory.Controllers
     }
 
     [HttpPost]
-    public async Task<ActionResult> Create(Treat treat, int FlavorId)
+    public ActionResult Create(Treat treat, int FlavorId)
     {
-      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      var currentUser = await _userManager.FindByIdAsync(userId);
-      treat.User = currentUser;
       _db.Treats.Add(treat);
       if (FlavorId != 0)
       {
