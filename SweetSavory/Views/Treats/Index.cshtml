@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@using SweetSavory.Models
+@model IEnumerable<SweetSavory.Models.Treat>
+
+<h1>Treats</h1>
+<hr>
+@if (Model.Any())
+{
+  @foreach (Treat treat in Model)
+  {
+    <h3>@Html.ActionLink($"{treat.Dish}", "Details", new { id = treat.TreatId })</h3>
+  }
+}
+else
+{
+  <h3>No Treats have been added yet.</h3>
+}
+<hr>
+<h5>@Html.ActionLink("Add new Treat", "Create")</h5>
+<h5>@Html.ActionLink("Home", "Index", "Home")</h5>
