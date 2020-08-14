@@ -30,6 +30,9 @@ namespace SweetSavory
       services.AddEntityFrameworkMySql()
         .AddDbContext<SweetSavoryContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
+      services.AddIdentity<AppUser, IdentityRole> ()
+        .AddEntityFrameworkStores<SweetSavoryContext>()
+        .AddDefaultTokenProviders();
 
       services.Configure<IdentityOptions>(options =>
       {

@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using SweetSavory.Models;
 
 namespace SweetSavory.Controllers
 {

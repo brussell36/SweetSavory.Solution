@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Linq;
-using System.Security.Claims;
 using SweetSavory.Models;
 using SweetSavory.ViewModels;
 using System.Threading.Tasks;
@@ -26,7 +26,7 @@ namespace SweetSavory.Controllers
       return View();
     }
 
-    public IActionResult Register()
+    public ActionResult Register()
     {
       return View();
     }

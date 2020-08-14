@@ -37,13 +37,9 @@ namespace SweetSavory.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Treat treat, int FlavorId)
+    public ActionResult Create(Treat treat)
     {
       _db.Treats.Add(treat);
-      if (FlavorId != 0)
-      {
-        _db.FlavorTreat.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });
-      }
       _db.SaveChanges();
       return RedirectToAction("Index");
     }

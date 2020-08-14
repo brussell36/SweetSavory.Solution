@@ -11,7 +11,7 @@ _This application will help a librarian keep track of the books and authors in t
 
 ## Setup/Installation Requirements
 
-* Clone this repository from GitHub https://github.com/brussell36/Library.Solution.git
+* Clone this repository from GitHub https://github.com/brussell36/SweetSavory.Solution.git
 * Open the downloaded directory in a text editor of your choice. (VSCode, Atom, etc.)
 * Install [.Net Core](https://dotnet.microsoft.com/download/dotnet-core/2.2) 
 * To install the REPL dotnet script, run ```dotnet tool install -g dotnet-script``` in your terminal.
