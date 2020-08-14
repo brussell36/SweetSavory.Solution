@@ -77,5 +77,20 @@ namespace SweetSavory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = treat.TreatId });
     }
+
+    public ActionResult Delete(int id)
+    {
+      thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
+      return View(thisTreat);
+    }
+
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      var thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
+      _db.Treats.Remove();
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
