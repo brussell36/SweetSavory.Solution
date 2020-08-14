@@ -38,5 +38,24 @@ namespace SweetSavory.Controllers
         return RedirectToAction("Index");
       }
     }
+
+    public ActionResult LogIn()
+    {
+      return View();
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> LogIn(LogInViewModel model)
+    {
+      Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: true, lockoutOnFailure: false);
+      if (result.Succeeded)
+      {
+        return RedirectToAction("Index");
+      }
+      else
+      {
+        return View();
+      }
+    }
   }
 }
