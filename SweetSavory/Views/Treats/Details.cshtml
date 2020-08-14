@@ -1,0 +1,27 @@
+@{
+  Layout = "_Layout";
+}
+
+@model SweetSavory.Models.Treat
+
+<h1>Treat Details</h1>
+<hr>
+<h3>@Html.DisplayFor(model => model.Dish)</h3>
+@if (Model.Flavors.Count == 0)
+{
+  <h5>This Treat has not had any Flavors added yet.</h5>
+}
+else
+{
+  <h3>Flavors this Treat has:</h3>
+  @foreach (var join in Model.Flavors)
+  {
+    <h4>@join.Flavors.Taste</h4>
+    @* @using (Html.BeginForm("")) *@
+  }
+}
+<hr>
+<h5>@Html.ActionLink("Back to Treats list", "Index")</h5>
+<h5>@Html.ActionLink("Edit Treat", "Edit", new { id = Model.TreatId })</h5>
+<h5>@Html.ActionLink("Delete Treat", "Delete", new { id = Model.TreatId })</h5>
+<h5>@Html.ActionLink("Back Home", "Index", "Home")</h5>
