@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+@using SweetSavory.ViewModels
+@model LogInViewModel
+
+<h1>Login with your Account</h1>
+<hr>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(m => m.Email)
+  @Html.TextBoxFor(m => m.Email, new {@class="form-control"})
+  @Html.LabelFor(m => m.Password)
+  @Html.PasswordFor(m => m.Password)
+  <input type="submit" value="Log in" class="btn btn-outline-dark"> 
+}
