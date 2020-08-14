@@ -5,7 +5,7 @@
 @model SweetSavory.Models.Flavor
 
 <h2>Flavor Details</h2>
-<hr />
+<hr>
 <h3>@Html.DisplayFor(model => model.Taste)</h3>
 
 @if (@Model.Treats.Count == 0)
@@ -16,7 +16,7 @@
 {
   <h3>@Html.ActionLink(@join.Treat.Dish, "Details", "Treats", new { id = join.TreatId })</h3>
 }
-
+<hr>
 <h5>@Html.ActionLink("Add Treat to this Flavor", "Create", "Treats")</h5>
 <h5>@Html.ActionLink("Back to Flavors list", "Index")</h5>
 <h5>@Html.ActionLink("Edit Flavor", "Edit", new { id = Model.FlavorId })</h5>
