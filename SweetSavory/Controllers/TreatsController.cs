@@ -35,6 +35,7 @@ namespace SweetSavory.Controllers
       return View();
     }
 
+    [HttpPost]
     public async Task<ActionResult> Create(Treat treat, int FlavorId)
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -56,6 +57,25 @@ namespace SweetSavory.Controllers
         .ThenInclude(join => join.Flavor)
         .FirstOrDefault(treat => treat.TreatId == id);
       return View(thisTreat);
+    }
+
+    public ActionResult Edit(int id)
+    {
+      var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
+      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Taste");
+      return View(thisTreat);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Treat treat, int FlavorId)
+    {
+      if (FlavorId != 0)
+      {
+        _db.FlavorTreat.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = treat.TreatId });
+      }
+      _db.Entry(treat).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Details", new { id = treat.TreatId });
     }
   }
 }
