@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>To Do List!</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="~/css/styles.css">
+  </head>
+  <body>
+      <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="#">Pierre's Bakery</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Flavors">Flavors</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Treats">Treats</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      @RenderBody()
+    </div>
+    <div id="footer">© Copyright Ben Russell Est.2020</div>
+  </body>
+</html>

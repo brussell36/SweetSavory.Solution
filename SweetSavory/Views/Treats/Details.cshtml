@@ -16,8 +16,7 @@ else
   <h3>Flavors this Treat has:</h3>
   @foreach (var join in Model.Flavors)
   {
-    <h4>@join.Flavors.Taste</h4>
-    @* @using (Html.BeginForm("")) *@
+    <h4>@join.Flavor.Taste</h4>
   }
 }
 <hr>

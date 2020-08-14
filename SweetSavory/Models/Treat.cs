@@ -10,6 +10,7 @@ namespace SweetSavory.Models
     }
     public int TreatId { get; set; }
     public string Dish { get; set; }
+    public AppUser User { get; set; }
     public ICollection<FlavorTreat> Flavors { get; set; }
   }
 }

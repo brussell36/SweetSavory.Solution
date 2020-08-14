@@ -31,11 +31,15 @@ namespace SweetSavory.Controllers
     [HttpPost]
     public async Task<ActionResult> Register(RegisterViewModel model)
     {
-      var AppUser = new AppUser { UserName = model.Email };
-      Identity result = await _userManager.CreateAsync(user, model.Password);
+      var user = new AppUser { UserName = model.Email };
+      IdentityResult result = await _userManager.CreateAsync(user, model.Password);
       if (result.Succeeded)
       {
         return RedirectToAction("Index");
+      }
+      else
+      {
+        return View();
       }
     }
 

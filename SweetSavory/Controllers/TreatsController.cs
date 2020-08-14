@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using ToDoList.Models;
+using SweetSavory.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
@@ -80,7 +80,7 @@ namespace SweetSavory.Controllers
 
     public ActionResult Delete(int id)
     {
-      thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
+      var thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
       return View(thisTreat);
     }
 
@@ -88,7 +88,7 @@ namespace SweetSavory.Controllers
     public ActionResult DeleteConfirmed(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
-      _db.Treats.Remove();
+      _db.Treats.Remove(thisTreat);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
